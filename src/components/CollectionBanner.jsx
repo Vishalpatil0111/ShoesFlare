@@ -27,7 +27,7 @@ function CollectionBanner() {
             <div className="order-1 md:order-2 flex justify-center items-center">
                 <img
                     className="w-full max-w-md sm:max-w-lg md:max-w-full h-auto object-cover rounded-lg "
-                    src="/images/new.png"
+                    src="/images/first.png"
                     alt="Shoe Image"
                 />
             </div>
