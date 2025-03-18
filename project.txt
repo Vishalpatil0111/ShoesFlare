@@ -1,0 +1,6 @@
+Home Page Contains : 
+components : 
+hero 
+products section
+category -  men , women , kids 
+brands
