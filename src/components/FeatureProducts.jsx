@@ -7,7 +7,7 @@ function FeatureProducts() {
     const getProducts = () => {
         axiosInstance
         .get("/products") 
-        .then((response) => setProduct(response.data))
+        .then((response) => setProduct(response.data.slice(0,10)))
         .catch((error) => console.error("Error fetching data:", error));
     }
 
