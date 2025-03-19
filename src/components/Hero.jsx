@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import axiosInstance from "../../utlis/apiInstance";
 
 const Hero = () => {
   const [products, setProducts] = useState([]);
@@ -12,16 +13,16 @@ const Hero = () => {
     if (cachedProducts) {
       setProducts(JSON.parse(cachedProducts));
       setLoading(false);
+    } else {
+      axiosInstance
+        .get("/products")
+        .then((response) => {
+          setProducts(response.data.slice(0, 5)); 
+          localStorage.setItem("products", JSON.stringify(response.data.slice(0, 5)));
+        })
+        .catch((error) => console.error("Error fetching data:", error))
+        .finally(() => setLoading(false)); 
     }
-
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((data) => {
-        localStorage.setItem("products", JSON.stringify(data.slice(0, 3)));
-        setProducts(data.slice(0, 6));
-        setLoading(false);
-      })
-      .catch((error) => console.error("Error fetching products:", error));
   }, []);
 
   useEffect(() => {
@@ -29,6 +30,7 @@ const Hero = () => {
       const interval = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
       }, 6000);
+
       return () => clearInterval(interval);
     }
   }, [products]);

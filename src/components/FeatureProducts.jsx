@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import axiosInstance from '../../utlis/apiInstance';
 
 function FeatureProducts() {
     const [product, setProduct] = useState([]); 
 
     const getProducts = () => {
-        fetch('https://fakestoreapi.com/products')
-            .then(res => res.json())
-            .then(data => setProduct(data.slice(0, 10))) 
-            .catch(error => console.error("Error fetching data:", error)); 
+        axiosInstance
+        .get("/products") 
+        .then((response) => setProduct(response.data))
+        .catch((error) => console.error("Error fetching data:", error));
     }
 
     useEffect(() => {

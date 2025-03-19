@@ -1,6 +1,9 @@
 import React from "react";
+import axiosInstancenew from "../../utlis/apiInstance2";
 
 function ShowBrand() {
+
+    
 
     const products = [
         { 
