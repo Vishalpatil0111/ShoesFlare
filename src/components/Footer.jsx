@@ -20,9 +20,9 @@ const Footer = () => {
           <ul className="mt-3 space-y-2">
             <li><Link to="/" className="hover:text-white">Home</Link></li>
             <li><Link to="/collection" className="hover:text-white">Collections</Link></li>
-            <li><Link to="/for-him" className="hover:text-white">For Him</Link></li>
-            <li><Link to="/for-her" className="hover:text-white">For Her</Link></li>
-            <li><Link to="/for-kids" className="hover:text-white">For Kids</Link></li>
+            <li><Link to="/men" className="hover:text-white">For Him</Link></li>
+            <li><Link to="/women" className="hover:text-white">For Her</Link></li>
+            <li><Link to="/kids" className="hover:text-white">For Kids</Link></li>
             <li><Link to="/brands" className="hover:text-white">Brands</Link></li>
           </ul>
         </div>
