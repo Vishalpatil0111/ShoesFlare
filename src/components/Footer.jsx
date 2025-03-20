@@ -12,6 +12,11 @@ const Footer = () => {
           <p className="text-sm mt-3">
             Discover high-quality shoes from top brands. Elevate your style with the best footwear.
           </p>
+          <div className=" flex mt-5 justify-start">
+                <Link to="/" className="text-3xl   font-bold tracking-wide">
+                    <span className="text-white">S</span><span className="text-gray-300">f</span>
+                </Link>
+            </div>
         </div>
 
        
@@ -22,8 +27,7 @@ const Footer = () => {
             <li><Link to="/collection" className="hover:text-white">Collections</Link></li>
             <li><Link to="/men" className="hover:text-white">For Him</Link></li>
             <li><Link to="/women" className="hover:text-white">For Her</Link></li>
-            <li><Link to="/kids" className="hover:text-white">For Kids</Link></li>
-            <li><Link to="/brands" className="hover:text-white">Brands</Link></li>
+           <li><Link to="/brandsproduct" className="hover:text-yellow-600">Brands</Link> </li>  
           </ul>
         </div>
 

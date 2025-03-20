@@ -1,7 +1,26 @@
-Home Page Contains : 
-components : 
+Common components : Navbar , Footer                                          Done
+
+----------------------------------------------------------------
+Home Page:                                                                   Done
 hero 
 products section
 brands 
+----------------------------------------------------------------
+Collections page :                                                           Done
+Banner 
+new collection
+----------------------------------------------------------------
+Mens & Womens Page :                                                         
+side panel of toggle betn Category
+Banner  , Category , product Grid
+----------------------------------------------------------------
+Brand Page :
+side panel of toggle betn brands
+Product as per brand 
+----------------------------------------------------------------
+Order Page & view more page :same 
+order track , cart , address , checkout
 
+DeadLine : 22 March 25 
 
+-----------------------------------------------------------------

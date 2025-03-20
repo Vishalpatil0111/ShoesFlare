@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from "react-router-dom";
 
 function CollectionBanner() {
-   
+    const handleViewMore = () => {
+        const section = document.getElementById("showbrand");
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      };
+      
 
     return (
-        <div className="w-full h-auto min-h-[70vh] sm:min-h-[85vh] grid md:grid-cols-2 bg-[#F8F3EF] p-4">
+        <div className="w-full h-auto min-h-[70vh] sm:min-h-[85vh] grid md:grid-cols-2 bg-[#F8F3EF]  p-4">
             
             <div className="flex flex-col justify-center gap-6 order-2 md:order-1 text-center md:text-left">
                 <h1 className="text-xl sm:text-3xl md:text-[4vw] font-semibold">
@@ -17,7 +24,7 @@ function CollectionBanner() {
                     <button className="px-4 py-2 rounded-md text-white bg-gray-600 hover:bg-gray-700 transition">
                         Order Now
                     </button>
-                    <button className="px-4 py-2 rounded-md bg-red-400 hover:bg-red-500 transition ">
+                    <button onClick={handleViewMore}  className="px-4 py-2 rounded-md bg-red-400 hover:bg-red-500 transition ">
                         View More
                     </button>
                 </div>

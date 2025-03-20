@@ -1,15 +1,14 @@
 import React from 'react'
-import Hero from '../components/Hero'
-import Products from '../components/Products'
-import Category from '../components/Category'
-import Brand from '../components/Brand'
+import Hero from '../components/Home/Hero'
+import Products from '../components/Home/Products'
+import Brand from '../components/Home/Brand'
 
 function Home() {
   return (
     <div>
-      <Hero/>
-      <Products/>
-      <Brand/>  
+      <Hero />
+      <Products />
+      <Brand />
 
     </div>
   )

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import axiosInstance from "../../utlis/apiInstance";
+import axiosInstance from "../../../utlis/apiInstance";
 
 const Hero = () => {
   const [products, setProducts] = useState([]);
@@ -17,11 +17,11 @@ const Hero = () => {
       axiosInstance
         .get("/products")
         .then((response) => {
-          setProducts(response.data.slice(0, 5)); 
+          setProducts(response.data.slice(0, 5));
           localStorage.setItem("products", JSON.stringify(response.data.slice(0, 5)));
         })
         .catch((error) => console.error("Error fetching data:", error))
-        .finally(() => setLoading(false)); 
+        .finally(() => setLoading(false));
     }
   }, []);
 

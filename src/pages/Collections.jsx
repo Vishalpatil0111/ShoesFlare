@@ -1,15 +1,14 @@
 import React from 'react';
-import CollectionBanner from '../components/CollectionBanner';
+import CollectionBanner from '../components/Collections/CollectionBanner';
 
-import ShowBrand from '../components/ShowBrand';
+import ShowBrand from '../components/Collections/ShowBrand';
 
 function Collections() {
   return (
-<div className="w-full bg-[#f8f0ef] min-h-screen p-3 sm:p-10 md:p-0 border">
-  <CollectionBanner />
- 
-  <ShowBrand />
-</div>
+    <div id="showbrand" className="bg-[#f8f0ef]">
+    <CollectionBanner />
+    <ShowBrand />
+  </div>
   );
 }
 
