@@ -21,7 +21,7 @@ const WGridSlider = ({ products }) => {
                 swiperRefs.current[safeCategory] = swiperRefs.current[safeCategory] || useRef(null);
 
                 return (
-                    <div key={category} className="relative w-full bg-gray-100 p-5 rounded-lg shadow">
+                    <div key={category} className="relative w-full bg-gray-50 p-5 rounded-lg shadow">
                         <h2 className="text-2xl font-bold text-gray-800 mb-4">{category}</h2>
 
                         <Swiper
@@ -41,7 +41,7 @@ const WGridSlider = ({ products }) => {
                             className="w-full"
                         >
                             {products.map((product) => (
-                                <SwiperSlide key={product.id} className="bg-white shadow-md rounded-lg p-4">
+                                <SwiperSlide key={product.id} className="bg-green-100 shadow-md rounded-lg p-4">
                                     <img
                                         src={product.productimage}
                                         alt={product.title}

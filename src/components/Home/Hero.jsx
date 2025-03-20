@@ -31,12 +31,12 @@ const Hero = () => {
   }, [currentIndex]); // Reset interval on index change
 
   return (
-    <div className="relative w-full h-fit sm:h-[85vh] bg-[#0cc9ef] overflow-hidden">
+    <div className="relative w-full h-fit sm:h-[90vh] bg-transparent overflow-hidden">
       <div className="w-full h-full flex transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
 
         {displayedProducts.map((product, index) => (
-          <div key={product.id} className="w-full flex-shrink-0 grid md:grid-cols-2 p-6 sm:p-14">
+          <div key={product.id} className={`w-full flex-shrink-0 grid md:grid-cols-2 p-6 sm:p-14 ${product.bgcolor}`}>
             <div className="flex flex-col justify-center gap-6 text-center md:text-left pb-10">
               <h1 className="text-xl sm:text-3xl md:text-[4vw] font-semibold">
                 {product.title}
@@ -53,14 +53,16 @@ const Hero = () => {
                 </button>
               </div>
             </div>
-
-            <div className="flex h-full justify-center items-center">
+            <div className="flex justify-center items-center w-full h-auto">
               <img
-                className="w-full max-w-md sm:max-w-lg md:max-w-full h-auto max-h-[50vh] sm:max-h-[60vh] object-cover rounded-lg"
+                className="w-full max-w-[500px] sm:max-w-[600px] md:max-w-[700px] lg:max-w-[800px] 
+               h-auto max-h-[75vh] sm:max-h-[85vh] 
+               object-contain"
                 src={product.productimage}
                 alt={product.title}
               />
             </div>
+
 
 
 

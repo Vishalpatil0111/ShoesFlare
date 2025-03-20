@@ -21,7 +21,7 @@ function ShowBrand() {
                     {displayedProducts.map((product, index) => (
                         <div
                             key={index}
-                            className={`${product.bgColor} flex flex-col sm:flex-col  shadow-lg rounded-lg overflow-hidden h-auto`}
+                            className={`${product.bgcolor} flex flex-col sm:flex-col  shadow-lg rounded-lg overflow-hidden h-auto`}
                         >
                             {/* Left Section */}
                             <div className="flex-1 flex flex-col p-4">

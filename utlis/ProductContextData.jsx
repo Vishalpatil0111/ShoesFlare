@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import first from "../src/assets/images/first.png"
+
 
 const ProductContextData = createContext();
 
@@ -8,304 +8,225 @@ export const ProductProvider = ({ children }) => {
         {
             id: 1,
             companyname: "Nike.com",
-            productimage: first,
-            title: "Nike Air Max",
-            description: "Comfortable running shoes with great cushioning.",
+            productimage: "/images/nikeair.png",
+            title: "Nike Air Max Plus",
+            description: "Tuned Air technology for extra comfort and support.",
             category: "Sneakers",
             madefor: "men",
-            price: 120
+            price: 150,
+            bgcolor: "bg-white"
         },
         {
             id: 2,
             companyname: "Adidas.com",
-            productimage: "/images/first.png",
-            title: "Adidas Ultraboost",
-            description: "High-performance running shoes for all-day comfort.",
+            productimage: "/images/adiultra.png",
+            title: "Adidas Ultraboost Light",
+            description: "Ultra-responsive running shoes with a light feel.",
             category: "Running Shoes",
             madefor: "men",
-            price: 150
+            price: 180,
+             bgcolor: "bg-zinc-200"
         },
         {
             id: 3,
             companyname: "Puma.com",
-            productimage: "/images/first.png",
-            title: "Puma RS-X",
-            description: "Futuristic design with maximum comfort.",
+            productimage: "/images/rsx.png",
+            title: "Puma RS-X3",
+            description: "Bold design with high-tech comfort.",
             category: "Sneakers",
             madefor: "women",
-            price: 110
+            price: 120,
+            bgcolor: "bg-sky-400"
         },
         {
             id: 4,
             companyname: "Reebok.com",
-            productimage: "/images/first.png",
-            title: "Reebok Zig Kinetica",
-            description: "Energy-returning sole for a comfortable walk.",
+            productimage: "/images/zig.png",
+            title: "Reebok Zig Dynamica",
+            description: "Innovative zigzag sole for energy return.",
             category: "Running Shoes",
             madefor: "women",
-            price: 130
+            price: 135,
+            bgcolor: "bg-red-300"
         },
         {
             id: 5,
             companyname: "Nike.com",
-            productimage: "/images/new.png",
-            title: "Nike Blazer Mid",
-            description: "Classic mid-top sneakers with vintage appeal.",
-            category: "Sneakers",
+            productimage: "/images/blazer.png",
+            title: "Nike Blazer Mid '77",
+            description: "Classic basketball sneakers with retro vibes.",
+            category: "Casual Shoes",
             madefor: "men",
-            price: 100
+            price: 110,
+            bgcolor: "bg-zinc-500"
         },
         {
             id: 6,
             companyname: "Adidas.com",
-            productimage: "images/new.png",
-            title: "Adidas Forum Low",
-            description: "Retro basketball shoes for everyday style.",
+            productimage: "/images/forums.png",
+            title: "Adidas Forum 84 Low",
+            description: "Throwback basketball style with modern comfort.",
             category: "Casual Shoes",
             madefor: "men",
-            price: 90
+            price: 95,
+            bgcolor: "bg-brown-300"
         },
         {
             id: 7,
             companyname: "Puma.com",
-            productimage: "images/new.png",
-            title: "Puma Cali",
-            description: "Stylish sneakers with a modern touch.",
+            productimage: "/images/cali.png",
+            title: "Puma Cali Dream",
+            description: "Trendy sneakers with a fresh and modern look.",
             category: "Sneakers",
             madefor: "women",
-            price: 95
+            price: 105,
+              bgcolor: "bg-yellow-50"
         },
         {
             id: 8,
             companyname: "Reebok.com",
-            productimage: "images/new.png",
-            title: "Reebok Classic",
-            description: "Timeless design for all-day wear.",
+            productimage: "/images/classicleather.png",
+            title: "Reebok Classic Leather",
+            description: "Timeless design that never goes out of style.",
             category: "Casual Shoes",
             madefor: "women",
-            price: 85
+            price: 85,
+              bgcolor: "bg-zinc-400"
         },
         {
             id: 9,
             companyname: "Nike.com",
-            productimage: "images/new.png",
-            title: "Nike Vaporfly",
-            description: "Ultra-lightweight shoes for marathon runners.",
+            productimage: "/images/vaporfly.png",
+            title: "Nike Vaporfly 3",
+            description: "Elite marathon racing shoes with max speed.",
             category: "Running Shoes",
             madefor: "men",
-            price: 200
+            price: 210,
+              bgcolor: "bg-green-300"
         },
         {
             id: 10,
             companyname: "Adidas.com",
-            productimage: "images/new.png",
-            title: "Adidas Yeezy",
-            description: "High-end fashion sneakers.",
+            productimage: "/images/yeeze.png",
+            title: "Adidas Yeezy Boost 350",
+            description: "Fashion-forward sneakers with a unique style.",
             category: "Sneakers",
             madefor: "men",
-            price: 250
+            price: 280,
+            bgcolor: "bg-zinc-50"
         },
         {
             id: 11,
             companyname: "Puma.com",
-            productimage: "images/second.png",
-            title: "Puma Suede",
-            description: "Classic suede sneakers.",
+            productimage: "/images/suede.png",
+            title: "Puma Suede Classic",
+            description: "Iconic low-top sneakers for everyday wear.",
             category: "Casual Shoes",
             madefor: "women",
-            price: 80
+            price: 90,
+            bgcolor: "bg-white"
         },
         {
             id: 12,
             companyname: "Reebok.com",
-            productimage: "images/second.png",
-            title: "Reebok Nano X",
-            description: "Perfect for training and workouts.",
+            productimage: "/images/nano.png",
+            title: "Reebok Nano X3",
+            description: "Cross-training shoes for workouts and lifting.",
             category: "Training Shoes",
             madefor: "men",
-            price: 140
+            price: 145,
+              bgcolor: "bg-zinc-300"
         },
         {
             id: 13,
             companyname: "Nike.com",
-            productimage: "images/third.png",
-            title: "Nike SB Dunk",
-            description: "Skateboarding shoes with a stylish look.",
+            productimage: "/images/dunklow.png",
+            title: "Nike Dunk Low",
+            description: "Basketball-inspired sneakers with street appeal.",
             category: "Sneakers",
             madefor: "men",
-            price: 110
+            price: 120,
+              bgcolor: "bg-red-300"
         },
         {
             id: 14,
             companyname: "Adidas.com",
-            productimage: "images/third.png",
+            productimage: "/images/superstart.png",
             title: "Adidas Superstar",
-            description: "Iconic street-style sneakers.",
+            description: "Legendary shell-toe sneakers.",
             category: "Casual Shoes",
             madefor: "women",
-            price: 100
+            price: 110,
+              bgcolor: "bg-orange-300"
         },
         {
             id: 15,
             companyname: "Puma.com",
-            productimage: "images/third.png",
+            productimage: "/images/rider.png",
             title: "Puma Future Rider",
             description: "Comfortable and stylish for everyday wear.",
             category: "Sneakers",
             madefor: "men",
-            price: 90
+            price: 100,
+              bgcolor: "bg-red-300"
         },
         {
             id: 16,
             companyname: "Reebok.com",
-            productimage: "images/six.png",
-            title: "Reebok Floatride",
-            description: "Great for long-distance running.",
+            productimage: "/images/floatride.png",
+            title: "Reebok Floatride Energy 3",
+            description: "Lightweight running shoes for long-distance.",
             category: "Running Shoes",
             madefor: "women",
-            price: 160
+            price: 160,
+              bgcolor: "bg-zinc-300"
         },
         {
             id: 17,
             companyname: "Nike.com",
-            productimage: "images/six.png",
-            title: "Nike Pegasus",
-            description: "Best-selling running shoes.",
+            productimage: "/images/pegasus.png",
+            title: "Nike Pegasus 40",
+            description: "Go-to running shoes for every athlete.",
             category: "Running Shoes",
             madefor: "men",
-            price: 130
+            price: 135,
+              bgcolor: "bg-blue-300"
         },
         {
             id: 18,
             companyname: "Adidas.com",
-            productimage: "images/four.png",
-            title: "Adidas NMD",
-            description: "Street-style sneakers with great comfort.",
+            productimage: "/images/nmdr.png",
+            title: "Adidas NMD R1",
+            description: "Futuristic design for urban adventures.",
             category: "Sneakers",
             madefor: "women",
-            price: 140
+            price: 150,
+              bgcolor: "bg-white"
         },
         {
             id: 19,
             companyname: "Puma.com",
-            productimage: "images/four.png",
+            productimage: "/images/ignite.png",
             title: "Puma Ignite",
-            description: "Performance-focused running shoes.",
+            description: "Performance running shoes for speed and comfort.",
             category: "Running Shoes",
             madefor: "men",
-            price: 125
+            price: 130,
+              bgcolor: "bg-zinc-50"
         },
         {
             id: 20,
             companyname: "Reebok.com",
-            productimage: "images/four.png",
-            title: "Reebok Club C",
-            description: "Classic tennis-style shoes.",
+            productimage: "/images/club.png",
+            title: "Reebok Club C 85",
+            description: "Classic tennis shoes for a retro look.",
             category: "Casual Shoes",
             madefor: "women",
-            price: 75
-        },
-        {
-            id: 21,
-            companyname: "Puma.com",
-            productimage: "images/second.png",
-            title: "Puma Suede",
-            description: "Classic suede sneakers.",
-            category: "Casual Shoes",
-            madefor: "women",
-            price: 80
-        },
-        {
-            id: 22,
-            companyname: "Reebok.com",
-            productimage: "images/second.png",
-            title: "Reebok Nano X",
-            description: "Perfect for training and workouts.",
-            category: "Training Shoes",
-            madefor: "men",
-            price: 140
-        },
-        {
-            id: 23,
-            companyname: "Nike.com",
-            productimage: "images/third.png",
-            title: "Nike SB Dunk",
-            description: "Skateboarding shoes with a stylish look.",
-            category: "Sneakers",
-            madefor: "men",
-            price: 110
-        },
-        {
-            id: 24,
-            companyname: "Adidas.com",
-            productimage: "images/third.png",
-            title: "Adidas Superstar",
-            description: "Iconic street-style sneakers.",
-            category: "Casual Shoes",
-            madefor: "women",
-            price: 100
-        },
-        {
-            id: 25,
-            companyname: "Puma.com",
-            productimage: "images/third.png",
-            title: "Puma Future Rider",
-            description: "Comfortable and stylish for everyday wear.",
-            category: "Crocs",
-            madefor: "men",
-            price: 90
-        },
-        {
-            id: 26,
-            companyname: "Reebok.com",
-            productimage: "images/six.png",
-            title: "Reebok Floatride",
-            description: "Great for long-distance running.",
-            category: "Running Shoes",
-            madefor: "women",
-            price: 160
-        },
-        {
-            id: 27,
-            companyname: "Nike.com",
-            productimage: "images/six.png",
-            title: "Nike Pegasus",
-            description: "Best-selling running shoes.",
-            category: "Running Shoes",
-            madefor: "men",
-            price: 130
-        },
-        {
-            id: 28,
-            companyname: "Adidas.com",
-            productimage: "images/four.png",
-            title: "Adidas NMD",
-            description: "Street-style sneakers with great comfort.",
-            category: "Sneakers",
-            madefor: "women",
-            price: 140
-        },
-        {
-            id: 29,
-            companyname: "Puma.com",
-            productimage: "images/four.png",
-            title: "Puma Ignite",
-            description: "Performance-focused running shoes.",
-            category: "Running Shoes",
-            madefor: "men",
-            price: 125
-        },
-        {
-            id: 30,
-            companyname: "Reebok.com",
-            productimage: "images/four.png",
-            title: "Reebok Club C",
-            description: "Classic tennis-style shoes.",
-            category: "Casual Shoes",
-            madefor: "women",
-            price: 75
+            price: 80,
+              bgcolor: "bg-zinc-700"
         }
     ]);
+    
 
     return (
         <ProductContextData.Provider value={{ products }}>

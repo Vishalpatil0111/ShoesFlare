@@ -50,7 +50,7 @@ function CategoryM({ products }) {
           <SwiperSlide key={item.category} className="flex flex-col items-center">
             <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full bg-yellow-200 p-2 flex justify-center items-center">
               <img
-                className="w-full h-full object-contain rounded-full"
+                className="w-full h-full object-contain center rounded-full"
                 src={item.productimage}
                 alt={item.category}
               />

@@ -10,11 +10,10 @@ Collections page :                                                           Don
 Banner 
 new collection
 ----------------------------------------------------------------
-Mens & Womens Page :                                                         
+Mens & Womens Page :                                                         Done             
 Banner  , Category panel , product Grid
 ----------------------------------------------------------------
 Brand Page :
-side panel of toggle betn brands
 Product as per brand 
 ----------------------------------------------------------------
 Order Page & view more page :same 
