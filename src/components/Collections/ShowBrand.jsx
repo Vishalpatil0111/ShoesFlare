@@ -1,60 +1,12 @@
 import React from "react";
-import axiosInstancenew from "../../../utlis/apiInstance2";
+import { useProductContext } from "../../../utlis/ProductContextData";
 
 function ShowBrand() {
 
 
 
-    const products = [
-        {
-            title: "Nike Air Phantom",
-            company: "nike.com",
-            description: "A stylish and comfortable sneaker featuring a breathable mesh upper, lightweight cushioning, and durable rubber outsole for all-day wear.",
-            price: 1399,
-            image: "/images/new.png",
-            bgColor: "bg-zinc-50"
-        },
-        {
-            title: "Puma Ignite X",
-            company: "puma.com",
-            description: "Designed for performance and style, these sneakers offer superior grip, a cushioned midsole, and a sleek design perfect for casual and sports use.",
-            price: 1599,
-            image: "/images/second.png",
-            bgColor: "bg-blue-100"
-        },
-        {
-            title: "Adidas Velocity Prime",
-            company: "adidas.com",
-            description: "A classic yet modern sneaker with a breathable knit upper, responsive cushioning, and a flexible outsole for maximum comfort and support.",
-            price: 1499,
-            image: "/images/third.png",
-            bgColor: "bg-red-400"
-        },
-        {
-            title: "Reebok Stealth Runner",
-            company: "reebok.com",
-            description: "Crafted with high-quality synthetic leather and mesh, these sneakers provide excellent durability, arch support, and a stylish sporty look.",
-            price: 1699,
-            image: "/images/four.png",
-            bgColor: "bg-violet-300"
-        },
-        {
-            title: "New Balance Nova",
-            company: "newbalance.com",
-            description: "A premium sneaker featuring a soft foam midsole, reinforced heel support, and a timeless white design that pairs well with any outfit.",
-            price: 1399,
-            image: "/images/fifth.png",
-            bgColor: "bg-sky-300"
-        },
-        {
-            title: "Asics Thunderstrike",
-            company: "asics.com",
-            description: "These sneakers offer a perfect blend of stability and flexibility with their gel cushioning system, breathable upper, and bold yellow finish.",
-            price: 1599,
-            image: "/images/six.png",
-            bgColor: "bg-red-200"
-        }
-    ];
+    const { products } = useProductContext();
+    const displayedProducts = products.slice(0, 6);
 
     return (
         <div className="w-full flex flex-col mt-4 items-center text-white text-center p-5">
@@ -66,7 +18,7 @@ function ShowBrand() {
             {/* Product Grid */}
             <div className="w-full mt-6">
                 <div className="w-full min-h-[55vh] grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-6 p-4">
-                    {products.map((product, index) => (
+                    {displayedProducts.map((product, index) => (
                         <div
                             key={index}
                             className={`${product.bgColor} flex flex-col sm:flex-col  shadow-lg rounded-lg overflow-hidden h-auto`}
@@ -75,8 +27,8 @@ function ShowBrand() {
                             <div className="flex-1 flex flex-col p-4">
                                 {/* Company Logo */}
                                 <img
-                                    src={`https://logo.clearbit.com/${product.company}`}
-                                    alt={product.company}
+                                    src={`https://logo.clearbit.com/${product.companyname}`}
+                                    alt={displayedProducts.companyname}
                                     className="h-12 sm:h-16 w-12 sm:w-16 object-contain"
                                 />
 
@@ -105,7 +57,7 @@ function ShowBrand() {
                             <div className="flex-1">
                                 <img
                                     className="w-full h-full sm:h-auto object-cover"
-                                    src={product.image}
+                                    src={product.productimage}
                                     alt={product.title}
                                 />
                             </div>

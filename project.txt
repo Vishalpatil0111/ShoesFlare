@@ -11,8 +11,7 @@ Banner
 new collection
 ----------------------------------------------------------------
 Mens & Womens Page :                                                         
-side panel of toggle betn Category
-Banner  , Category , product Grid
+Banner  , Category panel , product Grid
 ----------------------------------------------------------------
 Brand Page :
 side panel of toggle betn brands

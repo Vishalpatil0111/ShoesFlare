@@ -4,7 +4,7 @@ import Home from './pages/Home'
 import Footer from './components/Footer'
 import { Route, Routes } from 'react-router-dom'
 import Collections from './pages/Collections'
-import Men from './pages/men'
+import Men from './pages/Men'
 
 
 
