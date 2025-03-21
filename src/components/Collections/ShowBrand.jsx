@@ -53,10 +53,10 @@ function ShowBrand() {
                                 </div>
                             </div>
 
-                            {/* Right Section (Image) */}
-                            <div className="flex-1">
+                           
+                            <div className="flex-1 ">
                                 <img
-                                    className="w-full h-full sm:h-auto object-cover"
+                                    className="w-full h-full  sm:h-auto object-cover"
                                     src={product.productimage}
                                     alt={product.title}
                                 />

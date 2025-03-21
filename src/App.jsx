@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 import Collections from './pages/Collections'
 import Men from './pages/Men'
 import Womens from './pages/Womens'
+import BrandsP from './pages/BrandsP'
 
 
 
@@ -18,6 +19,8 @@ function App() {
         <Route path="/collection" element={<Collections />} />
         <Route path='/men' element={<Men />} />
         <Route path='/women' element={<Womens/>}></Route>
+        <Route path='/brandsproduct' element={<BrandsP/>}></Route>
+        
       </Routes>
       <Footer />
       

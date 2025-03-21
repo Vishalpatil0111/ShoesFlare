@@ -48,6 +48,14 @@ const WGridSlider = ({ products }) => {
                                         className="w-full h-40 object-contain rounded-lg"
                                     />
                                     <h3 className="mt-2 text-gray-700 font-semibold text-center">{product.title}</h3>
+                                    <div className="mt-4 flex flex-col justify-center sm:flex-row gap-4">
+                                        <button className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
+                                            Buy Now
+                                        </button>
+                                        <button className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
+                                            View Details
+                                        </button>
+                                    </div>
                                 </SwiperSlide>
                             ))}
                         </Swiper>

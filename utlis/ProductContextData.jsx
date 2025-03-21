@@ -69,7 +69,7 @@ export const ProductProvider = ({ children }) => {
             category: "Casual Shoes",
             madefor: "men",
             price: 95,
-            bgcolor: "bg-brown-300"
+            bgcolor: "bg-amber-300 "
         },
         {
             id: 7,

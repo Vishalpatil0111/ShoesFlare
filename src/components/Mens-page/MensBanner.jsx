@@ -31,6 +31,7 @@ function MensBanner({ product }) {
             alt={product?.title || "Shoe Image"}
           />
         </div>
+       
       </div>
     </div>
   );

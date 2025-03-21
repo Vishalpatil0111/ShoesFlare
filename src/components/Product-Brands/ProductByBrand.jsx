@@ -5,10 +5,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const ProductGridSlider = ({ products }) => {
+const ProductByBrand = ({ products }) => {
     const groupedProducts = products.reduce((acc, product) => {
-        if (!acc[product.category]) acc[product.category] = [];
-        acc[product.category].push(product);
+        if (!acc[product.companyname]) acc[product.companyname] = [];
+        acc[product.companyname].push(product);
         return acc;
     }, {});
 
@@ -16,13 +16,17 @@ const ProductGridSlider = ({ products }) => {
 
     return (
         <div className="w-full p-4 flex flex-col gap-8">
-            {Object.entries(groupedProducts).map(([category, products]) => {
-                const safeCategory = category.replace(/\s+/g, "-");
+            <div className="text-xl flex justify-center font-semibold md:font-bold sm:text-3xl">
+                <h1 className="text-zinc-900">Brands & Product</h1>
+            </div>
+
+            {Object.entries(groupedProducts).map(([companyname, products]) => {
+                const safeCategory = companyname.replace(/\s+/g, "-");
                 swiperRefs.current[safeCategory] = swiperRefs.current[safeCategory] || useRef(null);
 
                 return (
-                    <div key={category} className="relative w-full bg-zinc-50 p-5 rounded-lg shadow">
-                        <h2 className="text-2xl font-bold text-gray-800 mb-4">{category}</h2>
+                    <div key={companyname} className="relative w-full bg-gray-50 p-5 rounded-lg shadow">
+                        <h2 className="text-2xl font-bold text-gray-800 mb-4">{companyname.replace(".com", "")}</h2>
 
                         <Swiper
                             modules={[Navigation]}
@@ -41,7 +45,7 @@ const ProductGridSlider = ({ products }) => {
                             className="w-full"
                         >
                             {products.map((product) => (
-                                <SwiperSlide key={product.id} className=" bg-sky-100 shadow-md rounded-lg p-4 $">
+                                <SwiperSlide key={product.id} className="bg-green-100 shadow-md rounded-lg p-4">
                                     <img
                                         src={product.productimage}
                                         alt={product.title}
@@ -82,4 +86,4 @@ const ProductGridSlider = ({ products }) => {
     );
 };
 
-export default ProductGridSlider;
+export default ProductByBrand;
