@@ -1,13 +1,18 @@
 import React from "react";
 import { useProductContext } from "../../../utlis/ProductContextData";
+import { Navigate, redirect } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 function ShowBrand() {
-
-
-
+    const navigate = useNavigate();
+   const handleViewDetails = ()=>{
+            navigate('/viewdetails')
+   }
+   
     const { products } = useProductContext();
     const displayedProducts = products.slice(0, 6);
 
+  
     return (
         <div className="w-full flex flex-col mt-4 items-center text-white text-center p-5">
             {/* Title */}
@@ -47,7 +52,7 @@ function ShowBrand() {
                                     <button className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
                                         Order Now
                                     </button>
-                                    <button className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
+                                    <button onClick={handleViewDetails} className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
                                         View Details
                                     </button>
                                 </div>

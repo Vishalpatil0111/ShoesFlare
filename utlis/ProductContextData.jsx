@@ -25,6 +25,7 @@ export const ProductProvider = ({ children }) => {
             category: "Running Shoes",
             madefor: "men",
             price: 180,
+            sizes: [5,6,7,8],
              bgcolor: "bg-zinc-200"
         },
         {

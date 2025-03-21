@@ -7,6 +7,7 @@ import Collections from './pages/Collections'
 import Men from './pages/Men'
 import Womens from './pages/Womens'
 import BrandsP from './pages/BrandsP'
+import ViewDetails from './pages/ViewDetails'
 
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/men' element={<Men />} />
         <Route path='/women' element={<Womens/>}></Route>
         <Route path='/brandsproduct' element={<BrandsP/>}></Route>
+        <Route path='/viewdetails' element={<ViewDetails/>}></Route>
         
       </Routes>
       <Footer />
