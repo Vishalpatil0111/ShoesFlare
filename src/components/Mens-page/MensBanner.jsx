@@ -1,6 +1,7 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 function MensBanner({ product }) {
+
   return (
     <div>
       <div className="w-full h-auto min-h-[70vh] sm:min-h-[85vh] grid md:grid-cols-2 bg-[#0cc9ef] p-4">
@@ -17,8 +18,8 @@ function MensBanner({ product }) {
             <button className="px-4 py-2 rounded-md text-white bg-gray-600 hover:bg-gray-700 transition">
               Order Now
             </button>
-            <button className="px-4 py-2 rounded-md bg-red-400 hover:bg-red-500 transition">
-              View More
+            <button  className="px-4 py-2 rounded-md bg-red-400 hover:bg-red-500 transition">
+              View Details
             </button>
           </div>
         </div>

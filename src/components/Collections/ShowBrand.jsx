@@ -1,18 +1,19 @@
 import React from "react";
 import { useProductContext } from "../../../utlis/ProductContextData";
-import { Navigate, redirect } from "react-router-dom";
+
 import { useNavigate } from 'react-router-dom';
 
 function ShowBrand() {
     const navigate = useNavigate();
-   const handleViewDetails = ()=>{
-            navigate('/viewdetails')
-   }
-   
+
+
     const { products } = useProductContext();
+    const handleViewDetails = (product) => {
+        navigate(`/productdetails/${product.id}`, { state: { product } })
+    }
     const displayedProducts = products.slice(0, 6);
 
-  
+
     return (
         <div className="w-full flex flex-col mt-4 items-center text-white text-center p-5">
             {/* Title */}
@@ -33,7 +34,7 @@ function ShowBrand() {
                                 {/* Company Logo */}
                                 <img
                                     src={`https://logo.clearbit.com/${product.companyname}`}
-                                    alt={displayedProducts.companyname}
+                                    alt={product.companyname}
                                     className="h-12 sm:h-16 w-12 sm:w-16 object-contain"
                                 />
 
@@ -52,13 +53,13 @@ function ShowBrand() {
                                     <button className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
                                         Order Now
                                     </button>
-                                    <button onClick={handleViewDetails} className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
+                                    <button onClick={() => handleViewDetails(product)} className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
                                         View Details
                                     </button>
                                 </div>
                             </div>
 
-                           
+
                             <div className="flex-1 ">
                                 <img
                                     className="w-full h-full  sm:h-auto object-cover"

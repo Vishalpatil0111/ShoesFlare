@@ -1,33 +1,30 @@
-import React from 'react'
-import Navbar from './components/Navbar'
-import Home from './pages/Home'
-import Footer from './components/Footer'
-import { Route, Routes } from 'react-router-dom'
-import Collections from './pages/Collections'
-import Men from './pages/Men'
-import Womens from './pages/Womens'
-import BrandsP from './pages/BrandsP'
-import ViewDetails from './pages/ViewDetails'
-
-
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Collections from './pages/Collections';
+import Men from './pages/Men';
+import Womens from './pages/Womens';
+import BrandsP from './pages/BrandsP';
+import ProductDetails from './components/Details-Page/Productdetails'; // Directly using ProductDetails
 
 function App() {
   return (
-    <div className='pt-[2px]  w-full h-screen '>
+    <div className='pt-[2px] w-full h-screen'>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/collection" element={<Collections />} />
-        <Route path='/men' element={<Men />} />
-        <Route path='/women' element={<Womens/>}></Route>
-        <Route path='/brandsproduct' element={<BrandsP/>}></Route>
-        <Route path='/viewdetails' element={<ViewDetails/>}></Route>
-        
+        <Route path="/men" element={<Men />} />
+        <Route path="/women" element={<Womens />} />
+        <Route path="/brandsproduct" element={<BrandsP />} />
+        <Route path="/productdetails" element={<ProductDetails />} />
+        <Route path="/productdetails/:id" element={<ProductDetails />} /> 
       </Routes>
       <Footer />
-      
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

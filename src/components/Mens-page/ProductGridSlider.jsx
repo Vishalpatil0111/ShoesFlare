@@ -4,13 +4,22 @@ import { Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
+import { useNavigate } from "react-router-dom";
 
 const ProductGridSlider = ({ products }) => {
+    const navigate = useNavigate();
+
+    const handleViewDetails = (product) => {
+        navigate(`/productdetails/${product.id}`, { state: { product } })
+    }
+
     const groupedProducts = products.reduce((acc, product) => {
         if (!acc[product.category]) acc[product.category] = [];
         acc[product.category].push(product);
         return acc;
     }, {});
+
+
 
     const swiperRefs = useRef({});
 
@@ -18,8 +27,7 @@ const ProductGridSlider = ({ products }) => {
         <div className="w-full p-4 flex flex-col gap-8">
             {Object.entries(groupedProducts).map(([category, products]) => {
                 const safeCategory = category.replace(/\s+/g, "-");
-                swiperRefs.current[safeCategory] = swiperRefs.current[safeCategory] || useRef(null);
-
+                swiperRefs.current[safeCategory] = React.createRef();
                 return (
                     <div key={category} className="relative w-full bg-zinc-50 p-5 rounded-lg shadow">
                         <h2 className="text-2xl font-bold text-gray-800 mb-4">{category}</h2>
@@ -29,7 +37,7 @@ const ProductGridSlider = ({ products }) => {
                             onSwiper={(swiper) => (swiperRefs.current[safeCategory].current = swiper)}
                             loop={true}
                             spaceBetween={10}
-                            slidesPerView={2}
+                            slidesPerView={1}
                             breakpoints={{
                                 640: { slidesPerView: 3 },
                                 1024: { slidesPerView: 4 },
@@ -45,14 +53,17 @@ const ProductGridSlider = ({ products }) => {
                                     <img
                                         src={product.productimage}
                                         alt={product.title}
-                                        className="w-full h-40 object-contain rounded-lg"
+                                        className="w-full h-70 center sm:h-40  object-contain rounded-lg"
                                     />
-                                    <h3 className="mt-2 text-gray-700 font-semibold text-center">{product.title}</h3>
+                                    <div className="w-full h-fit flex flex-col sm:flex-row justify-between">
+                                        <h3 className="mt-2 text-gray-700 font-semibold text-start">{product.title}</h3>
+                                        <h3 className="mt-2 w-fit h-fit text-wrap rounded-md text-lg px-2 text-gray-700 bg-yellow-300 font-semibold text-start">${product.price}</h3>
+                                    </div>
                                     <div className="mt-4 flex flex-col justify-center sm:flex-row gap-4">
                                         <button className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
                                             Buy Now
                                         </button>
-                                        <button className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
+                                        <button onClick={() => handleViewDetails(product)} className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
                                             View Details
                                         </button>
                                     </div>

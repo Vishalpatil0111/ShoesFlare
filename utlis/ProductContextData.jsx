@@ -14,6 +14,7 @@ export const ProductProvider = ({ children }) => {
             category: "Sneakers",
             madefor: "men",
             price: 150,
+            sizes: [6,7,8,9],
             bgcolor: "bg-white"
         },
         {
@@ -37,6 +38,7 @@ export const ProductProvider = ({ children }) => {
             category: "Sneakers",
             madefor: "women",
             price: 120,
+            sizes: [5,7,8],
             bgcolor: "bg-sky-400"
         },
         {
@@ -48,6 +50,7 @@ export const ProductProvider = ({ children }) => {
             category: "Running Shoes",
             madefor: "women",
             price: 135,
+            sizes: [5,6,7,8],
             bgcolor: "bg-red-300"
         },
         {
@@ -59,6 +62,7 @@ export const ProductProvider = ({ children }) => {
             category: "Casual Shoes",
             madefor: "men",
             price: 110,
+            sizes: [5,6,7,8,9],
             bgcolor: "bg-zinc-500"
         },
         {
@@ -70,6 +74,7 @@ export const ProductProvider = ({ children }) => {
             category: "Casual Shoes",
             madefor: "men",
             price: 95,
+            sizes: [6,7,8],
             bgcolor: "bg-amber-300 "
         },
         {
@@ -81,6 +86,7 @@ export const ProductProvider = ({ children }) => {
             category: "Sneakers",
             madefor: "women",
             price: 105,
+            sizes: [5,6,7,8],
               bgcolor: "bg-yellow-50"
         },
         {
@@ -92,6 +98,7 @@ export const ProductProvider = ({ children }) => {
             category: "Casual Shoes",
             madefor: "women",
             price: 85,
+            sizes: [5,6,7,8],
               bgcolor: "bg-zinc-400"
         },
         {
@@ -103,6 +110,7 @@ export const ProductProvider = ({ children }) => {
             category: "Running Shoes",
             madefor: "men",
             price: 210,
+            sizes: [5,6,7,8],
               bgcolor: "bg-green-300"
         },
         {
@@ -114,6 +122,7 @@ export const ProductProvider = ({ children }) => {
             category: "Sneakers",
             madefor: "men",
             price: 280,
+            sizes: [5,6,7,9],
             bgcolor: "bg-zinc-50"
         },
         {
@@ -125,6 +134,7 @@ export const ProductProvider = ({ children }) => {
             category: "Casual Shoes",
             madefor: "women",
             price: 90,
+            sizes: [5,6,7,8,9,10,11,12],
             bgcolor: "bg-white"
         },
         {
@@ -136,6 +146,7 @@ export const ProductProvider = ({ children }) => {
             category: "Training Shoes",
             madefor: "men",
             price: 145,
+            sizes: [5,6,7,8],
               bgcolor: "bg-zinc-300"
         },
         {
@@ -147,6 +158,7 @@ export const ProductProvider = ({ children }) => {
             category: "Sneakers",
             madefor: "men",
             price: 120,
+            sizes: [6,7,8],
               bgcolor: "bg-red-300"
         },
         {
@@ -158,6 +170,7 @@ export const ProductProvider = ({ children }) => {
             category: "Casual Shoes",
             madefor: "women",
             price: 110,
+            sizes: [5,6,7,8],
               bgcolor: "bg-orange-300"
         },
         {
@@ -169,6 +182,7 @@ export const ProductProvider = ({ children }) => {
             category: "Sneakers",
             madefor: "men",
             price: 100,
+            sizes: [5,6,7,8],
               bgcolor: "bg-red-300"
         },
         {
@@ -180,6 +194,7 @@ export const ProductProvider = ({ children }) => {
             category: "Running Shoes",
             madefor: "women",
             price: 160,
+            sizes: [5,6,7,8],
               bgcolor: "bg-zinc-300"
         },
         {
@@ -191,6 +206,7 @@ export const ProductProvider = ({ children }) => {
             category: "Running Shoes",
             madefor: "men",
             price: 135,
+            sizes: [5,6,7,8],
               bgcolor: "bg-blue-300"
         },
         {
@@ -202,6 +218,7 @@ export const ProductProvider = ({ children }) => {
             category: "Sneakers",
             madefor: "women",
             price: 150,
+            sizes: [5,6,7,8],
               bgcolor: "bg-white"
         },
         {
@@ -213,6 +230,7 @@ export const ProductProvider = ({ children }) => {
             category: "Running Shoes",
             madefor: "men",
             price: 130,
+            sizes: [5,6,7,8],
               bgcolor: "bg-zinc-50"
         },
         {
@@ -224,6 +242,7 @@ export const ProductProvider = ({ children }) => {
             category: "Casual Shoes",
             madefor: "women",
             price: 80,
+            sizes: [5,6,7,8],
               bgcolor: "bg-zinc-700"
         }
     ]);
