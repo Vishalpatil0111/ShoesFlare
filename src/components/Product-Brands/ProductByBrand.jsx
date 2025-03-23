@@ -5,9 +5,13 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
 const ProductByBrand = ({ products }) => {
 
     const navigate = useNavigate();
+    const [hoveredProduct, setHoveredProduct] = useState(null);
+    
 
     const handleViewDetails = (product) => {
         navigate(`/productdetails/${product.id}`, { state: { product } })
@@ -31,7 +35,7 @@ const ProductByBrand = ({ products }) => {
                 swiperRefs.current[safeCategory] = React.createRef();
 
                 return (
-                    <div key={companyname} className="relative w-full bg-gray-50 p-5 rounded-lg shadow">
+                    <div key={companyname}  className="relative w-full bg-gray-50 p-5 rounded-lg shadow">
                         <h2 className="text-2xl font-bold text-gray-800 mb-4">{companyname.replace(".com", "")}</h2>
 
                         <Swiper
@@ -52,25 +56,49 @@ const ProductByBrand = ({ products }) => {
                             className="w-full"
                         >
                             {products.map((product) => (
-                                <SwiperSlide key={product.id} className="bg-green-100 shadow-md rounded-lg p-4">
+                                <SwiperSlide
+                                key={product.id}
+                                onMouseEnter={() => setHoveredProduct(product.id)}
+                                onMouseLeave={() => setHoveredProduct(null)}
+                                onClick={() => handleViewDetails(product)}
+                                className="relative bg-green-100 shadow-md rounded-lg p-4 "
+                            >
+                                {/* Image Container */}
+                                <div className="relative">
                                     <img
                                         src={product.productimage}
                                         alt={product.title}
-                                        className="w-full h-70 center sm:h-40 object-contain rounded-lg"
+                                        className="w-full h-70 sm:h-40 object-contain rounded-lg "
                                     />
-                                    <div className="w-full h-fit flex flex-col sm:flex-row justify-between">
-                                        <h3 className="mt-2 text-gray-700 font-semibold text-start">{product.title}</h3>
-                                        <h3 className="mt-2 w-fit h-fit text-wrap rounded-md text-lg px-2 text-gray-700 bg-yellow-300 font-semibold text-start">${product.price}</h3>
-                                    </div>
-                                    <div className="mt-4 flex flex-col justify-center sm:flex-row gap-4">
-                                        <button className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
-                                            Buy Now
-                                        </button>
-                                        <button onClick={() => handleViewDetails(product)} className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
-                                            View Details
-                                        </button>
-                                    </div>
-                                </SwiperSlide>
+                            
+                                    {/* Overlay on Hover */}
+                                    {hoveredProduct === product.id && (
+                                        <div className="absolute inset-0  bg-opacity-30 flex justify-center items-center transition-opacity duration-300">
+                                            <button className="px-4 py-2 text-white bg-black bg-opacity-60 rounded-md transition hover:bg-opacity-100">
+                                                View Details
+                                            </button>
+                                        </div>
+                                    )}
+                                </div>
+                            
+                                {/* Product Info */}
+                                <div className="w-full h-fit flex flex-col sm:flex-row justify-between">
+                                    <h3 className="mt-2 text-gray-700 font-semibold text-start">{product.title}</h3>
+                                    <h3 className="mt-2 w-fit h-fit text-wrap rounded-md text-lg px-2 text-gray-700 bg-yellow-300 font-semibold text-start">
+                                        ${product.price}
+                                    </h3>
+                                </div>
+                            
+                                <div className="mt-4 flex flex-col justify-center sm:flex-row gap-4">
+                                    <button className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
+                                        Buy Now
+                                    </button>
+                                    <button className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </SwiperSlide>
+                            
                             ))}
                         </Swiper>
 
