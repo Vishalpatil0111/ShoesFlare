@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram, FaBars, FaTimes } from "react-icons/fa";
+import { CartContext } from "./CartContext";
+import { useContext } from "react";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const { cart } = useContext(CartContext);
 
     return (
-        <header className="w-full bg-gray-800 shadow-sm">
+      <div className="fixed top-0 left-0 w-full z-100">
+          <header className="w-full bg-gray-800 shadow-sm">
             {/* Top Section - Logo Centered */}
             <div className="flex justify-center py-3">
                 <Link to="/" className="text-3xl font-bold tracking-wide whitespace-nowrap">
@@ -32,6 +36,9 @@ const Navbar = () => {
                     <Link to="/women" className="hover:text-yellow-600">For Her</Link>
                     <Link to="/brandsproduct" className="hover:text-yellow-600">Brands</Link>
                     <Link to="/info" className="hover:text-yellow-600">More Info</Link>
+                    <Link to="/cart" className="relative text-white">
+                        Cart ({cart.length})
+                    </Link>
                 </div>
 
                 {/* Login & Mobile Menu Button */}
@@ -51,9 +58,14 @@ const Navbar = () => {
                 <Link to="/women" className="text-white hover:text-yellow-500 py-2" onClick={() => setMenuOpen(false)}>For Her</Link>
                 <Link to="/brandsproduct" className="text-white hover:text-yellow-500 py-2" onClick={() => setMenuOpen(false)}>Brands</Link>
                 <Link to="/info" className="text-white hover:text-yellow-500 py-2" onClick={() => setMenuOpen(false)}>More Info</Link>
+                <Link to="/cart" className="relative text-white">
+                    Cart ({cart.length})
+                </Link>
+
                 <button className="w-full px-4 py-2 mt-3 rounded-md bg-zinc-200 text-gray-800" onClick={() => setMenuOpen(false)}>Login</button>
             </div>
         </header>
+      </div>
     );
 };
 

@@ -9,7 +9,7 @@ import Womens from './pages/Womens';
 import BrandsP from './pages/BrandsP';
 import ProductDetails from './components/Details-Page/Productdetails'; // Directly using ProductDetails
 import ScrollTop from './components/Scrolltop';
-import Cart from './pages/Cart';
+import CartPage from './pages/CartPage';
 function App() {
   return (
     <div className='pt-[2px] w-full h-screen'>
@@ -23,7 +23,7 @@ function App() {
         <Route path="/brandsproduct" element={<BrandsP />} />
         <Route path="/productdetails" element={<ProductDetails />} />
         <Route path="/productdetails/:id" element={<ProductDetails />} /> 
-        
+        <Route path="/cart" element={<CartPage />} />
       </Routes>
       <Footer />
     </div>
