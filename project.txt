@@ -13,10 +13,10 @@ new collection
 Mens & Womens Page :                                                         Done             
 Banner  , Category panel , product Grid
 ----------------------------------------------------------------
-Brand Page :
+Brand Page :                                                                 Done
 Product as per brand 
 ----------------------------------------------------------------
-Order Page & view more page :same 
+Order Page & view more page :same                                            Done
 order track , cart , address , checkout
 
 DeadLine : 22 March 25 
