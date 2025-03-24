@@ -4,7 +4,7 @@ const Order = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="container mx-auto p-6 pt-[35px] text-center">
+        <div className="container mx-auto p-6 sm:mt-[40px] text-center">
             <h2 className="text-3xl font-bold text-green-600">🎉 Order Placed Successfully!</h2>
             <p className="mt-2 text-gray-600">Thank you for your order. We will contact you soon.</p>
             <button

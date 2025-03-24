@@ -10,7 +10,7 @@ const CartPage = () => {
         navigate('/checkout', { state: { cart } });
     }
     return (
-        <div className="pt-[35px] p-4 bg-gray-100 min-h-screen">
+        <div className="p-4 sm:mt-[40px] bg-gray-100 min-h-screen">
             <h1 className=" text-2xl font-bold mb-6 ">MY SHOPPING BAG</h1>
 
             {cart.length === 0 ? (

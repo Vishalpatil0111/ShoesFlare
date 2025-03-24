@@ -11,18 +11,13 @@ export default function Men() {
   const menProducts = products.filter(product => product.madefor.toLowerCase() === "men");
 
  
-  const product = {
-    title: "AirMax Running Shoes",
-    description:
-      "Breathable mesh upper, lightweight midsole, and durable outsole for superior performance.",
-    productimage: "/images/third.png",
-  };
+  
 
   return (
-    <div className='pt-[35px]'>
-      <MensBanner product={product} />
-      <CategoryM products={menProducts} /> {/* ✅ Pass filtered products */}
-      <ProductGridSlider products={menProducts} /> {/* ✅ Pass filtered products */}
+    <div className='sm:mt-[40px]'>
+      <MensBanner product={menProducts} />
+      <CategoryM products={menProducts} /> 
+      <ProductGridSlider products={menProducts} /> 
     </div>
   );
 }

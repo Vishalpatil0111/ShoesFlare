@@ -12,9 +12,10 @@ import ScrollTop from './components/Scrolltop';
 import CartPage from './pages/CartPage';
 import Checkout from './pages/Checkout.jsx';
 import Order from './pages/Order.jsx';
+import MoreInfo from './pages/MoreInfo.jsx';
 function App() {
   return (
-    <div className='pt-[80px] w-full h-screen'>
+    <div className='pt-[60px] w-full h-screen'>
       <Navbar />
       <ScrollTop /> 
       <Routes>
@@ -28,8 +29,11 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path='/checkout' element={<Checkout/>}/>
         <Route path='/order-success' element={<Order/>}/>
+        <Route path='/info' element={<MoreInfo/>}/>        
+
       </Routes>
       <Footer />
+      
     </div>
   );
 }

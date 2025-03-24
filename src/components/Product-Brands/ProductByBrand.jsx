@@ -14,9 +14,7 @@ const ProductByBrand = ({ products }) => {
     const navigate = useNavigate();
     const [hoveredProduct, setHoveredProduct] = useState(null);
 
-    const handleCheckout = () => {
-        navigate('/checkout', { state: { cart } });
-    }
+ 
     const { cart } = useContext(CartContext);
     const handleViewDetails = (product) => {
         navigate(`/productdetails/${product.id}`, { state: { product } })
@@ -37,7 +35,7 @@ const ProductByBrand = ({ products }) => {
 
     return (
         <div className="w-full p-4 flex flex-col gap-8">
-            <div className="text-xl flex justify-center font-semibold md:font-bold sm:text-3xl">
+            <div className="text-2xl flex justify-center font-semibold md:font-bold sm:text-3xl">
                 <h1 className="text-zinc-900">Brands & Product</h1>
             </div>
 

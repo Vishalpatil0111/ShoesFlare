@@ -11,6 +11,10 @@ function ShowBrand() {
     const handleViewDetails = (product) => {
         navigate(`/productdetails/${product.id}`, { state: { product } })
     }
+    const handleBuyNow = (product) => {
+        console.log("Navigating to checkout with product:", product);  // Debugging
+        navigate(`/checkout`, { state: { product } });
+    };
     const displayedProducts = products.slice(0, 6);
 
 
@@ -50,7 +54,7 @@ function ShowBrand() {
 
                                 {/* Buttons */}
                                 <div className="mt-4 flex flex-col justify-center sm:flex-row gap-4">
-                                    <button className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
+                                    <button onClick={() => handleBuyNow(product)} className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
                                         Order Now
                                     </button>
                                     <button onClick={() => handleViewDetails(product)} className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">

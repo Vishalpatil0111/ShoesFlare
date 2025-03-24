@@ -12,7 +12,7 @@ function Collections() {
   };
   return (
 
-    <div id="showbrand" className="bg-[#f8f0ef] pt-[80px]">
+    <div id="showbrand" className="bg-[#f8f0ef] sm:mt-[40px] ">
       <CollectionBanner  product={product}/>
       <ShowBrand />
     </div>

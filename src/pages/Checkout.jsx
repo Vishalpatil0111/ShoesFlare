@@ -28,7 +28,7 @@ const Checkout = () => {
 
     // Handle Order Submission
     const handleOrderSubmit = () => {
-        if (!formData.name || !formData.email || !formData.address || !formData.paymentScreenshot) {
+        if (!formData.name || !formData.email || !formData.address || !formData.postalcode || !formData.paymentScreenshot) {
             alert("Please fill in all required fields and upload a payment screenshot.");
             return;
         }
@@ -40,7 +40,7 @@ const Checkout = () => {
     if (!product && !cart) return <p>No items for checkout.</p>;
 
     return (
-        <div className="container mx-auto p-6">
+        <div className="container mx-auto p-6 sm:mt-[50px]">
             <h2 className="text-2xl font-bold mb-4">Checkout</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -72,6 +72,15 @@ const Checkout = () => {
                             value={formData.address}
                             onChange={handleChange}
                             className="w-full p-2 border rounded"
+                            required
+                        />
+                        <input
+                            type="number"
+                            name="Postal Code"
+                            placeholder="Postal"
+                            value={formData.postalcode}
+                            onChange={handleChange}
+                            className="w-1/2 p-2 border rounded"
                             required
                         />
                     </form>
@@ -107,7 +116,7 @@ const Checkout = () => {
                     {/* UPI QR Code Payment */}
                     <div className="text-center mt-4">
                         <p className="text-gray-600">Scan & Pay via UPI</p>
-                        <img src="/images/new.png" alt="UPI QR Code" className="mx-auto w-40 h-40" />
+                        <img src="/Payment/QR.jpg" alt="UPI QR Code" className="mx-auto w-70 h-60 object-cover" />
                     </div>
 
                     {/* Upload Screenshot */}

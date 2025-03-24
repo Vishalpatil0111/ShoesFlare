@@ -4,7 +4,7 @@ function MensBanner({ product }) {
 
   return (
     <div>
-      <div className="w-full h-auto min-h-[70vh] sm:min-h-[85vh] grid md:grid-cols-2 bg-[#0cc9ef] p-4">
+      <div className="w-full h-auto min-h-[90vh] sm:min-h-[85vh] grid md:grid-cols-2 bg-[#0cc9ef] p-4">
         {/* ✅ Product Content (Title & Description) */}
         <div className="flex flex-col justify-center gap-6 order-2 md:order-1 text-center md:text-left">
           <h1 className="text-xl sm:text-3xl md:text-[4vw] font-semibold">
@@ -14,14 +14,7 @@ function MensBanner({ product }) {
             {product?.description ||
               "Experience ultimate comfort and style with a breathable mesh upper, cushioned midsole, and durable outsole—perfect for daily wear, workouts, or casual outings!"}
           </p>
-          <div className="flex justify-center md:justify-start gap-4">
-            <button className="px-4 py-2 rounded-md text-white bg-gray-600 hover:bg-gray-700 transition">
-              Order Now
-            </button>
-            <button  className="px-4 py-2 rounded-md bg-red-400 hover:bg-red-500 transition">
-              View Details
-            </button>
-          </div>
+
         </div>
 
         {/* ✅ Product Image */}

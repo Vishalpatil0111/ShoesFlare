@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useProductContext } from "../../../utlis/ProductContextData";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
   const { products } = useProductContext();
@@ -29,7 +30,12 @@ const Hero = () => {
 
     return () => clearInterval(interval);
   }, [currentIndex]); 
-
+ 
+   const navigate = useNavigate();
+   const handleBuyNow = (product) => {
+    console.log("Navigating to checkout with product:", product);  // Debugging
+    navigate(`/checkout`, { state: { product } });
+};
   return (
     <div className="relative w-full h-fit sm:h-[90vh] bg-transparent overflow-hidden">
       <div className="w-full h-full flex transition-transform duration-700 ease-in-out"
@@ -45,12 +51,10 @@ const Hero = () => {
                 {product.description}
               </p>
               <div className="flex justify-center md:justify-start gap-4">
-                <button className="px-4 py-2 rounded-md text-white bg-gray-600 hover:bg-gray-700 transition">
+                <button  onClick={() => handleBuyNow(product)} className="px-4 py-2 rounded-md text-white bg-gray-600 hover:bg-gray-700 transition">
                   Order Now
                 </button>
-                <button className="px-4 py-2 rounded-md bg-red-400 hover:bg-red-500 transition">
-                  View More
-                </button>
+                
               </div>
             </div>
             <div className="flex justify-center items-center w-full h-auto">

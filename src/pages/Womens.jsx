@@ -10,16 +10,10 @@ function Womens() {
     const womenProducts = products.filter(product => product.madefor.toLowerCase() === "women");
   
    
-    const product = {
-      title: "AirMax Running Shoes",
-      description:
-        "Breathable mesh upper, lightweight midsole, and durable outsole for superior performance.",
-      productimage: "/images/four.png",
-    };
-  
+
     return (
-      <div className='pt-[35px]'>
-        <WomenBanner product={product} />
+      <div className='sm:mt-[40px]'>
+        <WomenBanner product={womenProducts} />
         <CategoryW products={womenProducts} /> 
         <WGridSlider products={womenProducts} /> 
       </div>
