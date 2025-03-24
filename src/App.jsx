@@ -8,16 +8,17 @@ import Men from './pages/Men';
 import Womens from './pages/Womens';
 import BrandsP from './pages/BrandsP';
 import ProductDetails from './components/Details-Page/Productdetails'; // Directly using ProductDetails
-import ScrollTop from './components/Scrolltop';
+
 import CartPage from './pages/CartPage';
 import Checkout from './pages/Checkout.jsx';
 import Order from './pages/Order.jsx';
 import MoreInfo from './pages/MoreInfo.jsx';
+import TopScroll from './components/TopScroll.jsx';
 function App() {
   return (
     <div className='pt-[60px] w-full h-screen'>
       <Navbar />
-      <ScrollTop /> 
+      <TopScroll/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/collection" element={<Collections />} />
