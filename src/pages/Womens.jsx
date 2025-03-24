@@ -18,7 +18,7 @@ function Womens() {
     };
   
     return (
-      <div>
+      <div className='pt-[35px]'>
         <WomenBanner product={product} />
         <CategoryW products={womenProducts} /> 
         <WGridSlider products={womenProducts} /> 

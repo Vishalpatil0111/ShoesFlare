@@ -12,7 +12,7 @@ function BrandsP() {
     
   
     return (
-      <div>
+      <div className='pt-[35px]'>
         <ProductByBrand products={BrandProducts} /> 
       </div>
     );

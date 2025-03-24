@@ -12,7 +12,7 @@ import ScrollTop from './components/Scrolltop';
 import CartPage from './pages/CartPage';
 function App() {
   return (
-    <div className='pt-[2px] w-full h-screen'>
+    <div className='pt-[80px] w-full h-screen'>
       <Navbar />
       <ScrollTop /> 
       <Routes>

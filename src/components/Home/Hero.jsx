@@ -21,14 +21,14 @@ const Hero = () => {
     );
   };
 
-  // Auto-scroll effect
+  
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 4000); // Change slide every 4 seconds
+    }, 4000); 
 
     return () => clearInterval(interval);
-  }, [currentIndex]); // Reset interval on index change
+  }, [currentIndex]); 
 
   return (
     <div className="relative w-full h-fit sm:h-[90vh] bg-transparent overflow-hidden">

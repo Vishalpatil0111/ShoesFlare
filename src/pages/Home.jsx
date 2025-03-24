@@ -5,7 +5,7 @@ import Brand from '../components/Home/Brand'
 
 function Home() {
   return (
-    <div>
+    <div className='pt-[35px]'>
       <Hero />
       <Products />
       <Brand />

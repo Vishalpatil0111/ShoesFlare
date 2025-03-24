@@ -19,7 +19,7 @@ export default function Men() {
   };
 
   return (
-    <div>
+    <div className='pt-[35px]'>
       <MensBanner product={product} />
       <CategoryM products={menProducts} /> {/* ✅ Pass filtered products */}
       <ProductGridSlider products={menProducts} /> {/* ✅ Pass filtered products */}
