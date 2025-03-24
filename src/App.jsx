@@ -10,6 +10,8 @@ import BrandsP from './pages/BrandsP';
 import ProductDetails from './components/Details-Page/Productdetails'; // Directly using ProductDetails
 import ScrollTop from './components/Scrolltop';
 import CartPage from './pages/CartPage';
+import Checkout from './pages/Checkout.jsx';
+import Order from './pages/Order.jsx';
 function App() {
   return (
     <div className='pt-[80px] w-full h-screen'>
@@ -24,6 +26,8 @@ function App() {
         <Route path="/productdetails" element={<ProductDetails />} />
         <Route path="/productdetails/:id" element={<ProductDetails />} /> 
         <Route path="/cart" element={<CartPage />} />
+        <Route path='/checkout' element={<Checkout/>}/>
+        <Route path='/order-success' element={<Order/>}/>
       </Routes>
       <Footer />
     </div>

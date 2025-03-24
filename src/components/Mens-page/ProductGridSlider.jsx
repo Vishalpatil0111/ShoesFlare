@@ -18,6 +18,12 @@ const ProductGridSlider = ({ products }) => {
         navigate(`/productdetails/${product.id}`, { state: { product } });
     };
 
+
+    const handleBuyNow = (product) => {
+        console.log("Navigating to checkout with product:", product);  // Debugging
+        navigate(`/checkout`, { state: { product } });
+    };
+
     const groupedProducts = products.reduce((acc, product) => {
         if (!acc[product.category]) acc[product.category] = [];
         acc[product.category].push(product);
@@ -26,7 +32,7 @@ const ProductGridSlider = ({ products }) => {
 
 
 
-    const { addToCart } = useContext(CartContext);
+    const { addToCart, removeFromCart } = useContext(CartContext);
     return (
         <div className="w-full p-4 flex flex-col gap-8">
             {Object.entries(groupedProducts).map(([category, products]) => {
@@ -88,15 +94,24 @@ const ProductGridSlider = ({ products }) => {
                                     </div>
 
                                     <div className="mt-4 flex flex-col justify-center sm:flex-row gap-4">
-                                        <button className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
+                                        <button
+                                            onClick={() => handleBuyNow(product)}
+                                            className="bg-green-500 text-white px-4 py-2 rounded"
+                                        >
                                             Buy Now
                                         </button>
                                         <button
-                                            onClick={() => addToCart(product)}
-                                            disabled={cart.some((item) => item.id === product.id)}
+                                            onClick={() => {
+                                                if (cart.some((item) => item.id === product.id)) {
+                                                    removeFromCart(product.id);
+                                                }
+                                                else {
+                                                    addToCart(product);
+                                                }
+                                            }}
                                             className="bg-blue-500 text-white px-4 py-2 rounded disabled:bg-gray-400"
                                         >
-                                            {cart.some((item) => item.id === product.id) ? "Added" : "Add to Cart"}
+                                            {cart.some((item) => item.id === product.id) ? "Remove" : "Add to Cart"}
                                         </button>
                                     </div>
                                 </SwiperSlide>

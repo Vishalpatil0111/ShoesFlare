@@ -61,9 +61,9 @@ const Navbar = () => {
                     <Link to="/cart" className="relative text-white" onClick={() => setMenuOpen(false)} >
                         Cart ({cart.length})
                     </Link>
-
                     <button className="w-full px-4 py-2 mt-3 rounded-md bg-zinc-200 text-gray-800" onClick={() => setMenuOpen(false)}>Login</button>
                 </div>
+
             </header>
         </div>
     );

@@ -1,9 +1,14 @@
 import React, { useContext } from "react";
 import { CartContext } from "../components/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
     const { cart, removeFromCart, updateQuantity, totalPrice } = useContext(CartContext);
+    const navigate = useNavigate()
 
+    const handleCheckout = ()=>{
+        navigate('/checkout', { state: { cart } });
+    }
     return (
         <div className="pt-[35px] p-4 bg-gray-100 min-h-screen">
             <h1 className=" text-2xl font-bold mb-6 ">MY SHOPPING BAG</h1>
@@ -98,7 +103,7 @@ const CartPage = () => {
                         </div>
 
                         {/* Checkout Button */}
-                        <button className="mt-6 w-full bg-black text-white py-3 rounded-md text-lg hover:bg-gray-900">
+                        <button onClick={handleCheckout} className="mt-6 w-full bg-black text-white py-3 rounded-md text-lg hover:bg-gray-900">
                             CHECKOUT
                         </button>
 

@@ -1,22 +1,29 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+
 import BackButton from '../BackButton';
-
+import { CartContext } from '../CartContext';
+import { useNavigate } from 'react-router-dom';
 function Productdetails() {
-
-
+   
     const { id } = useParams(); // Get product ID from URL
     const location = useLocation();
     const product = location.state?.product; // Get product data from state
     const [selectedSize, setSize] = useState(null);
-
+   
     if (!product) {
         return <p className="text-center text-red-500">Product not found for ID: {id}</p>;
     }
+    const { cart } = useContext(CartContext)
+    const { addToCart, removeFromCart } = useContext(CartContext)
 
+    const navigate = useNavigate()
+    const handleBuyNow = (product) => {
+        console.log("Navigating to checkout with product:", product);  // Debugging
+        navigate(`/checkout`, { state: { product } });
+    };
     return (
-        <>
+        <div className='pt-[35px]'>
             <div className='w-full flex justify-end mt-2 pr-12'>
                 <BackButton />
             </div>
@@ -66,12 +73,29 @@ function Productdetails() {
 
                     {/* Buttons */}
                     <div className='w-fit p-2 gap-5 flex mt-4'>
-                        <button className='px-5 md:py-3 bg-amber-300 rounded-full font-semibold'>Add to Cart</button>
-                        <button className='px-5 py-3 bg-orange-400 rounded-full font-semibold'>Buy Now</button>
+                        <button
+                            onClick={() => {
+                                if (cart.some((item) => item.id === product.id)) {
+                                    removeFromCart(product.id);
+                                }
+                                else {
+                                    addToCart(product);
+                                }
+                            }}
+                            className="bg-blue-500 text-white px-4 py-2 rounded disabled:bg-gray-400"
+                        >
+                            {cart.some((item) => item.id === product.id) ? "Remove" : "Add to Cart"}
+                        </button>
+                        <button
+                            onClick={() => handleBuyNow(product)}
+                            className="bg-green-500 text-white px-4 py-2 rounded"
+                        >
+                            Buy Now
+                        </button>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 

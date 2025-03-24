@@ -5,14 +5,27 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../CartContext";
+
 
 const ProductGridSlider = ({ products }) => {
     const navigate = useNavigate();
     const [hoveredProduct, setHoveredProduct] = useState(null);
+    const { cart } = useContext(CartContext);
 
+
+    const handleBuyNow = (product) => {
+        console.log("Navigating to checkout with product:", product);  // Debugging
+        navigate(`/checkout`, { state: { product } });
+    };
+    
     const handleViewDetails = (product) => {
         navigate(`/productdetails/${product.id}`, { state: { product } });
     };
+
+
+
 
     const groupedProducts = products.reduce((acc, product) => {
         if (!acc[product.category]) acc[product.category] = [];
@@ -20,11 +33,15 @@ const ProductGridSlider = ({ products }) => {
         return acc;
     }, {});
 
+
+
+    const { addToCart, removeFromCart } = useContext(CartContext);
+
     return (
         <div className="w-full p-4 flex flex-col gap-8">
             {Object.entries(groupedProducts).map(([category, products]) => {
                 const safeCategory = category.replace(/\s+/g, "-"); // Ensure unique class names
-                
+
                 return (
                     <div key={category} className="relative w-full bg-zinc-50 p-5 rounded-lg shadow">
                         <h2 className="text-2xl font-bold text-gray-800 mb-4">{category}</h2>
@@ -60,9 +77,8 @@ const ProductGridSlider = ({ products }) => {
 
                                         {/* Overlay on Hover */}
                                         <div
-                                            className={`absolute bottom-0 left-0 w-full h-full  bg-opacity-20 flex justify-center items-center transition-opacity duration-300 ${
-                                                hoveredProduct === product.id ? "opacity-100" : "opacity-0"
-                                            }`}
+                                            className={`absolute bottom-0 left-0 w-full h-full  bg-opacity-20 flex justify-center items-center transition-opacity duration-300 ${hoveredProduct === product.id ? "opacity-100" : "opacity-0"
+                                                }`}
                                         >
                                             <button
                                                 onClick={() => handleViewDetails(product)}
@@ -82,12 +98,26 @@ const ProductGridSlider = ({ products }) => {
                                     </div>
 
                                     <div className="mt-4 flex flex-col justify-center sm:flex-row gap-4">
-                                        <button className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
+                                        <button
+                                            onClick={() => handleBuyNow(product)}
+                                            className="bg-green-500 text-white px-4 py-2 rounded"
+                                        >
                                             Buy Now
                                         </button>
-                                        <button className="px-4 py-2 text-black bg-amber-100 rounded-md transition hover:bg-amber-300">
-                                            Add to Cart
+                                        <button
+                                            onClick={() => {
+                                                if (cart.some((item) => item.id === product.id)) {
+                                                    removeFromCart(product.id);
+                                                }
+                                                else {
+                                                    addToCart(product);
+                                                }
+                                            }}
+                                            className="bg-blue-500 text-white px-4 py-2 rounded disabled:bg-gray-400"
+                                        >
+                                            {cart.some((item) => item.id === product.id) ? "Remove" : "Add to Cart"}
                                         </button>
+
                                     </div>
                                 </SwiperSlide>
                             ))}

@@ -8,14 +8,16 @@ export const CartProvider = ({ children }) => {
     // Add product to cart
     const addToCart = (product) => {
         setCart((prevCart) => {
-           
+
             const existingItem = prevCart.find((item) => item.id === product.id);
-            if (existingItem) return prevCart; 
+            if (existingItem) return prevCart;
             return [...prevCart, { ...product, quantity: 1 }];
         });
     };
-    
 
+    const clearCart = () => {
+        setCart([]);
+    };
     // Remove product from cart
     const removeFromCart = (id) => {
         setCart((prevCart) => prevCart.filter((item) => item.id !== id));
@@ -32,11 +34,13 @@ export const CartProvider = ({ children }) => {
         );
     };
 
+   
+
     // Calculate total price
     const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, totalPrice }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity ,clearCart, totalPrice }}>
             {children}
         </CartContext.Provider>
     );
