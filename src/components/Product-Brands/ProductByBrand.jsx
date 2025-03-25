@@ -1,29 +1,17 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useNavigate } from "react-router-dom";
-
-import { useState } from "react";
-import { useContext } from "react";
 import { CartContext } from "../CartContext";
-const ProductByBrand = ({ products }) => {
 
+const ProductByBrand = ({ products }) => {
     const navigate = useNavigate();
     const [hoveredProduct, setHoveredProduct] = useState(null);
+    const { cart, addToCart, removeFromCart } = useContext(CartContext);
 
- 
-    const { cart } = useContext(CartContext);
-    const handleViewDetails = (product) => {
-        navigate(`/productdetails/${product.id}`, { state: { product } })
-    }
-
-    const handleBuyNow = (product) => {
-        console.log("Navigating to checkout with product:", product);  // Debugging
-        navigate(`/checkout`, { state: { product } });
-    };
     const groupedProducts = products.reduce((acc, product) => {
         if (!acc[product.companyname]) acc[product.companyname] = [];
         acc[product.companyname].push(product);
@@ -31,17 +19,35 @@ const ProductByBrand = ({ products }) => {
     }, {});
 
     const swiperRefs = useRef({});
-    const { addToCart, removeFromCart } = useContext(CartContext);
+
+    useEffect(() => {
+        // Initialize Swiper navigation once elements are available
+        Object.entries(swiperRefs.current).forEach(([key, swiper]) => {
+            if (swiper && swiper.params) {
+                swiper.params.navigation.prevEl = `.prev-${key}`;
+                swiper.params.navigation.nextEl = `.next-${key}`;
+                swiper.navigation.init();
+                swiper.navigation.update();
+            }
+        });
+    }, [groupedProducts]); // Run when products change
+
+    const handleViewDetails = (product) => {
+        navigate(`/productdetails/${product.id}`, { state: { product } });
+    };
+
+    const handleBuyNow = (product) => {
+        navigate(`/checkout`, { state: { product } });
+    };
 
     return (
         <div className="w-full p-4 flex flex-col gap-8">
             <div className="text-2xl flex justify-center font-semibold md:font-bold sm:text-3xl">
-                <h1 className="text-zinc-900">Brands & Product</h1>
+                <h1 className="text-zinc-900">Brands & Products</h1>
             </div>
 
             {Object.entries(groupedProducts).map(([companyname, products]) => {
                 const safeCategory = companyname.replace(/\s+/g, "-");
-                swiperRefs.current[safeCategory] = React.createRef();
 
                 return (
                     <div key={companyname} className="relative w-full bg-gray-50 p-5 rounded-lg shadow">
@@ -49,12 +55,11 @@ const ProductByBrand = ({ products }) => {
 
                         <Swiper
                             modules={[Navigation]}
-                            onSwiper={(swiper) => (swiperRefs.current[safeCategory].current = swiper)}
+                            onSwiper={(swiper) => (swiperRefs.current[safeCategory] = swiper)}
                             loop={true}
                             spaceBetween={10}
                             slidesPerView={1}
                             breakpoints={{
-
                                 640: { slidesPerView: 3 },
                                 1024: { slidesPerView: 4 },
                             }}
@@ -69,21 +74,23 @@ const ProductByBrand = ({ products }) => {
                                     key={product.id}
                                     onMouseEnter={() => setHoveredProduct(product.id)}
                                     onMouseLeave={() => setHoveredProduct(null)}
-
-                                    className="relative bg-green-100 shadow-md rounded-lg p-4 "
+                                    className="relative bg-green-100 shadow-md rounded-lg p-4"
                                 >
                                     {/* Image Container */}
                                     <div className="relative">
                                         <img
                                             src={product.productimage}
                                             alt={product.title}
-                                            className="w-full h-70 sm:h-40 object-contain rounded-lg "
+                                            className="w-full h-70 sm:h-40 object-contain rounded-lg"
                                         />
 
                                         {/* Overlay on Hover */}
                                         {hoveredProduct === product.id && (
-                                            <div className="absolute inset-0  bg-opacity-30 flex justify-center items-center transition-opacity duration-300">
-                                                <button onClick={() => handleViewDetails(product)} className="px-4 py-2 text-white bg-black bg-opacity-60 rounded-md transition hover:bg-opacity-100">
+                                            <div className="absolute inset-0 bg-opacity-30 flex justify-center items-center transition-opacity duration-300">
+                                                <button
+                                                    onClick={() => handleViewDetails(product)}
+                                                    className="px-4 py-2 text-white bg-black bg-opacity-60 rounded-md transition hover:bg-opacity-100"
+                                                >
                                                     View Details
                                                 </button>
                                             </div>
@@ -109,8 +116,7 @@ const ProductByBrand = ({ products }) => {
                                             onClick={() => {
                                                 if (cart.some((item) => item.id === product.id)) {
                                                     removeFromCart(product.id);
-                                                }
-                                                else {
+                                                } else {
                                                     addToCart(product);
                                                 }
                                             }}
@@ -120,23 +126,22 @@ const ProductByBrand = ({ products }) => {
                                         </button>
                                     </div>
                                 </SwiperSlide>
-
                             ))}
                         </Swiper>
 
                         {/* Navigation Buttons */}
-                        <div className="absolute bottom-2 right-2 flex gap-2 z-10">
+                        <div className="absolute bottom-1 right-2 flex gap-2 z-10">
                             <button
                                 className={`prev-${safeCategory} p-2 bg-gray-700 hover:bg-gray-900 text-white rounded-full`}
-                                onClick={() => swiperRefs.current[safeCategory].current?.slidePrev()}
+                                onClick={() => swiperRefs.current[safeCategory]?.slidePrev()}
                             >
-                                <ChevronLeft size={20} />
+                                <ChevronLeft size={15} />
                             </button>
                             <button
                                 className={`next-${safeCategory} p-2 bg-gray-700 hover:bg-gray-900 text-white rounded-full`}
-                                onClick={() => swiperRefs.current[safeCategory].current?.slideNext()}
+                                onClick={() => swiperRefs.current[safeCategory]?.slideNext()}
                             >
-                                <ChevronRight size={20} />
+                                <ChevronRight size={15} />
                             </button>
                         </div>
                     </div>

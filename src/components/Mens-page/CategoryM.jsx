@@ -63,18 +63,18 @@ function CategoryM({ products }) {
       </Swiper>
 
       {/* Navigation Buttons */}
-      <div className="absolute  right-0 top transform -translate-x-1/2 flex gap-3 z-10">
+      <div className="absolute  right-0 top-9 sm:top- transform -translate-x-1/2 flex gap-2 sm:gap-2 z-10">
         <button
           onClick={() => swiperRef.current?.slidePrev()}
-          className="p-3 bg-gray-700 hover:bg-gray-900 text-white rounded-full"
+          className="p-2 sm:p-3 bg-gray-700 hover:bg-gray-900 text-white rounded-full"
         >
-          <ChevronLeft size={12} />
+          <ChevronLeft size={10} />
         </button>
         <button
           onClick={() => swiperRef.current?.slideNext()}
-          className="p-3 bg-gray-700 hover:bg-gray-900 text-white rounded-full"
+          className="p-2 sm:p-3 bg-gray-700 hover:bg-gray-900 text-white rounded-full"
         >
-          <ChevronRight size={12} />
+          <ChevronRight size={10} />
         </button>
       </div>
     </div>

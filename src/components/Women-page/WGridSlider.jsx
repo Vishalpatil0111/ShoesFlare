@@ -124,12 +124,12 @@ const ProductGridSlider = ({ products }) => {
                         </Swiper>
 
                         {/* Navigation Buttons - Unique for Each Category */}
-                        <div className="absolute bottom-2 right-2 flex gap-2 z-10">
+                        <div className="absolute bottom-1 right-2 flex gap-2 z-10">
                             <button className={`prev-${safeCategory} p-2 bg-gray-700 hover:bg-gray-900 text-white rounded-full`}>
-                                <ChevronLeft size={20} />
+                                <ChevronLeft size={15} />
                             </button>
                             <button className={`next-${safeCategory} p-2 bg-gray-700 hover:bg-gray-900 text-white rounded-full`}>
-                                <ChevronRight size={20} />
+                                <ChevronRight size={15} />
                             </button>
                         </div>
                     </div>

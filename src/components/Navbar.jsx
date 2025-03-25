@@ -14,9 +14,11 @@ const Navbar = () => {
             <header className="w-full bg-gray-800 shadow-sm">
                 {/* Top Section - Logo Centered */}
                 <div className="flex justify-between items-center py-3 px-4 md:px-6">
-                    <Link to="/" className="text-3xl font-bold tracking-wide whitespace-nowrap">
+                   <div className="sm:w-full flex sm:justify-center">
+                   <Link to="/" className="text-3xl  font-bold tracking-wide whitespace-nowrap">
                         <span className="text-white">Sneaker</span><span className="text-gray-300">flare</span>
                     </Link>
+                   </div>
 
                     {/* Login & Cart */}
                     <div className="flex space-x-4 items-center">
